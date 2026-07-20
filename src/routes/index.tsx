@@ -32,7 +32,7 @@ function SerenaLogo({ size = 28 }: { size?: number }) {
   );
 }
 
-function Wordmark({ height = 36 }: { height?: number }) {
+function Wordmark({ height = 56 }: { height?: number }) {
   return <img src={serenaLogo.url} alt="Serena IA" style={{ height }} className="w-auto object-contain" />;
 }
 
