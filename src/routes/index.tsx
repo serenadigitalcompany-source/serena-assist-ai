@@ -302,17 +302,59 @@ function Landing() {
         <div className="max-w-7xl mx-auto h-full px-6 flex items-center justify-between">
           <Wordmark />
           <div className="hidden lg:flex items-center gap-1">
-            {[
-              ["Cas d'usage", true],
-              ["Tarifs", false],
-              ["Ressources", true],
-              ["À propos", true],
-            ].map(([l, chev]) => (
-              <a key={l as string} className="flex items-center gap-1 px-3.5 py-2 rounded-md text-[14px] font-medium text-[#0c0b0f]/75 hover:bg-black/[0.04] cursor-pointer">
-                {l}
-                {chev ? <ChevronDown size={14} /> : null}
-              </a>
-            ))}
+            {/* Cas d'usage - mega menu */}
+            <div className="relative group">
+              <button className="flex items-center gap-1 px-3.5 py-2 rounded-md text-[14px] font-medium text-[#0c0b0f]/75 hover:bg-black/[0.04]">
+                Cas d'usage <ChevronDown size={14} />
+              </button>
+              <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
+                <div className="w-[720px] rounded-2xl border border-black/10 bg-white shadow-[0_20px_60px_-20px_rgba(0,0,0,0.15)] p-6 grid grid-cols-[1fr_1.6fr] gap-8">
+                  <div>
+                    <div className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#0c0b0f]/45 mb-3">Cas d'utilisation</div>
+                    <ul className="space-y-2">
+                      {["Prise de rendez-vous & FAQ","Agent de support client IA","Secrétariat téléphonique IA","Répondeur téléphonique IA","Secrétariat","Transcription","Service Client","Prise de Commande","Planification","Plus de 100 options"].map(l => (
+                        <li key={l}><a className="block text-[14px] text-[#0c0b0f]/80 hover:text-[color:var(--n)] cursor-pointer" style={{ ["--n" as any]: NAVY }}>{l}</a></li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <div className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#0c0b0f]/45 mb-3">Industries</div>
+                    <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
+                      {["Beauté & Bien-être","Cabinet médical","Cabinet dentaire","Physiothérapeutes","Artisans","Avocats","Notaires","Conseillers fiscaux","Hôtels","Restauration","Commerce de détail","Concessions auto","Garages automobiles","Gestion Immobilière","Entreprises","Associations","Services publics","Indépendants"].map(l => (
+                        <li key={l}><a className="block text-[14px] text-[#0c0b0f]/80 hover:text-[color:var(--n)] cursor-pointer truncate" style={{ ["--n" as any]: NAVY }}>{l}</a></li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a className="px-3.5 py-2 rounded-md text-[14px] font-medium text-[#0c0b0f]/75 hover:bg-black/[0.04] cursor-pointer">Tarifs</a>
+
+            {/* Ressources */}
+            <div className="relative group">
+              <button className="flex items-center gap-1 px-3.5 py-2 rounded-md text-[14px] font-medium text-[#0c0b0f]/75 hover:bg-black/[0.04]">
+                Ressources <ChevronDown size={14} />
+              </button>
+              <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
+                <div className="min-w-[200px] rounded-xl border border-black/10 bg-white shadow-[0_20px_60px_-20px_rgba(0,0,0,0.15)] p-2">
+                  <a className="block px-3 py-2 rounded-md text-[14px] text-[#0c0b0f]/80 hover:bg-black/[0.04] cursor-pointer">Centre d'aide</a>
+                </div>
+              </div>
+            </div>
+
+            {/* À propos */}
+            <div className="relative group">
+              <button className="flex items-center gap-1 px-3.5 py-2 rounded-md text-[14px] font-medium text-[#0c0b0f]/75 hover:bg-black/[0.04]">
+                À propos <ChevronDown size={14} />
+              </button>
+              <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
+                <div className="min-w-[200px] rounded-xl border border-black/10 bg-white shadow-[0_20px_60px_-20px_rgba(0,0,0,0.15)] p-2">
+                  <a className="block px-3 py-2 rounded-md text-[14px] text-[#0c0b0f]/80 hover:bg-black/[0.04] cursor-pointer">Légal</a>
+                  <a className="block px-3 py-2 rounded-md text-[14px] text-[#0c0b0f]/80 hover:bg-black/[0.04] cursor-pointer">Contact</a>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="flex items-center gap-2">
             <button className="hidden sm:block px-3 py-2 text-[14px] font-medium text-[#0c0b0f]/75 hover:bg-black/[0.04] rounded-md">Se connecter</button>
@@ -322,6 +364,7 @@ function Landing() {
           </div>
         </div>
       </nav>
+
 
       {/* HERO */}
       <section className="relative overflow-hidden px-6 pt-20 pb-24">
