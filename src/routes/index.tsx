@@ -298,7 +298,7 @@ function Landing() {
       </div>
 
       {/* Nav */}
-      <nav className="sticky top-0 z-50 w-full h-[68px] bg-white/85 backdrop-blur-xl border-b border-black/10">
+      <nav className="sticky top-0 z-50 w-full h-[84px] bg-white/85 backdrop-blur-xl border-b border-black/10">
         <div className="max-w-7xl mx-auto h-full px-6 flex items-center justify-between">
           <Wordmark />
           <div className="hidden lg:flex items-center gap-1">
