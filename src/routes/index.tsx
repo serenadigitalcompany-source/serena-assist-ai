@@ -5,6 +5,7 @@ import whatsappAsset from "@/assets/whatsapp.asset.json";
 import instagramAsset from "@/assets/instagram.asset.json";
 import gcalAsset from "@/assets/gcal.asset.json";
 import hubspotAsset from "@/assets/hubspot.asset.json";
+import serenaLogo from "@/assets/serena-logo.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -30,13 +31,8 @@ function SerenaLogo({ size = 28 }: { size?: number }) {
   );
 }
 
-function Wordmark() {
-  return (
-    <div className="flex items-center gap-2">
-      <SerenaLogo size={30} />
-      <span className="text-[19px] font-bold tracking-tight text-[#0c0b0f]">Serena</span>
-    </div>
-  );
+function Wordmark({ height = 36 }: { height?: number }) {
+  return <img src={serenaLogo.url} alt="Serena IA" style={{ height }} className="w-auto object-contain" />;
 }
 
 /* ---------- Small brand icons (SVG) ---------- */
