@@ -5,7 +5,8 @@ import whatsappAsset from "@/assets/whatsapp.asset.json";
 import instagramAsset from "@/assets/instagram.asset.json";
 import gcalAsset from "@/assets/gcal.asset.json";
 import hubspotAsset from "@/assets/hubspot.asset.json";
-import serenaLogo from "@/assets/serena-logo.asset.json";
+import serenaLogo from "@/assets/serena-logo-transparent.asset.json";
+import planityAsset from "@/assets/planity.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Landing,
