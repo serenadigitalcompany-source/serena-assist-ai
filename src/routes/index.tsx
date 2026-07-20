@@ -414,56 +414,6 @@ function Landing() {
         </div>
       </Section>
 
-      {/* MULTI-CANAL */}
-      <Section>
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{ background: `radial-gradient(ellipse at 80% 50%, rgba(227,6,19,0.08), transparent 60%)` }}
-        />
-        <div className="relative grid md:grid-cols-2 gap-14 items-center">
-          {/* Phone mockup */}
-          <div className="mx-auto w-full max-w-[340px] rounded-[36px] p-3 bg-[#0c0b0f] shadow-[0_40px_100px_-40px_rgba(18,48,140,0.5)]">
-            <div className="rounded-[28px] bg-[#0b141a] p-4 space-y-2.5 min-h-[500px]">
-              <div className="flex items-center gap-2 pb-3 border-b border-white/10">
-                <WhatsAppIcon size={28} />
-                <div>
-                  <div className="text-white text-sm font-bold">Serena</div>
-                  <div className="text-white/50 text-[11px]">en ligne</div>
-                </div>
-              </div>
-              {[
-                { u: true, t: "Serena, j'ai un appel manqué du 06 12 34 56 78 — tu sais qui c'est ?" },
-                { u: false, t: "C'est Mme Dupont, cliente habituelle. Voulait reporter son RDV — je l'ai reprogrammé samedi 10h ✓" },
-                { u: true, t: "Et les appels de ce matin ?" },
-                { u: false, t: "5 appels traités, 3 RDV confirmés, 1 info tarif donnée, 1 démarchage filtré. Tout dans votre espace Serena 📊" },
-              ].map((m, i) => (
-                <div key={i} className={`flex ${m.u ? "justify-end" : "justify-start"}`}>
-                  <div className={`max-w-[80%] px-3 py-2 rounded-2xl text-[12.5px] ${m.u ? "bg-[#005c4b] text-white rounded-br-sm" : "bg-[#1f2c33] text-white rounded-bl-sm"}`}>{m.t}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#25D366]/10 border border-[#25D366]/30 text-[12px] font-semibold text-[#0c8a4a] mb-5">
-              <WhatsAppIcon size={14} /> Disponible sur tous vos canaux
-            </div>
-            <h2 className="text-4xl sm:text-5xl font-extrabold tracking-[-0.04em] mb-5">Gérez votre activité depuis n'importe où</h2>
-            <p className="text-[17px] text-[#0c0b0f]/65 mb-6 leading-relaxed">
-              Connectée à tous vos outils, Serena exécute vos demandes depuis un simple message. Vous restez aux commandes sans être scotché à votre téléphone.
-            </p>
-            <Checklist items={[
-              "Connectée à Planity, Google Agenda, HubSpot",
-              "Gestion multi-canaux en temps réel",
-              "Synthèses quotidiennes sur WhatsApp",
-              "Entraînée sur les données de votre entreprise",
-            ]} />
-            <div className="mt-8 flex flex-wrap gap-3">
-              <CTA>Essayer gratuitement</CTA>
-              <CTA variant="outline">Réserver une démo</CTA>
-            </div>
-          </div>
-        </div>
-      </Section>
 
       {/* TESTIMONIALS */}
       <Section className="bg-black/[0.02]">
