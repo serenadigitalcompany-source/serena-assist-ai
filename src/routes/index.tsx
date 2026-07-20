@@ -77,12 +77,7 @@ function GCalIcon({ size = 18 }: { size?: number }) {
   );
 }
 function PlanityIcon({ size = 18 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden>
-      <rect width="32" height="32" rx="8" fill="#7B4FE9" />
-      <text x="16" y="22" textAnchor="middle" fontSize="18" fontWeight="800" fill="#fff" fontFamily="Inter, sans-serif">P</text>
-    </svg>
-  );
+  return <img src={planityAsset.url} alt="Planity" style={{ width: size, height: size }} className="object-contain" />;
 }
 function HubSpotIcon({ size = 18 }: { size?: number }) {
   return <img src={hubspotAsset.url} alt="HubSpot" style={{ width: size, height: size }} />;
