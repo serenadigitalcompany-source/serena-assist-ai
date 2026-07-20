@@ -438,34 +438,70 @@ function Landing() {
         </div>
       </Section>
 
-      {/* INTEGRATIONS */}
+      {/* INTEGRATIONS - Orbital */}
       <Section>
         <div className="text-center mb-12">
-          <Eyebrow>4 intégrations disponibles</Eyebrow>
+          <Eyebrow>Intégrations</Eyebrow>
           <h2 className="mt-4 text-4xl sm:text-5xl font-extrabold tracking-[-0.04em]">Connectez Serena à vos outils</h2>
           <p className="mt-4 text-[17px] text-[#0c0b0f]/65 max-w-2xl mx-auto">
             Serena s'intègre en quelques clics à vos logiciels de réservation, CRM et messageries.
           </p>
         </div>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
-          {[
-            { n: "Planity", d: "Réservation & agenda", icon: <PlanityIcon size={40} /> },
-            { n: "Google Agenda", d: "Synchronisation", icon: <img src={gcalAsset.url} alt="Google Calendar" className="w-10 h-10 object-contain" /> },
-            { n: "HubSpot", d: "CRM & contacts", icon: <img src={hubspotAsset.url} alt="HubSpot" className="w-10 h-10 object-contain" /> },
-            { n: "WhatsApp", d: "Messagerie clients", icon: <img src={whatsappAsset.url} alt="WhatsApp" className="w-10 h-10 object-contain" /> },
-          ].map((i) => (
-            <div key={i.n} className="p-6 rounded-2xl bg-white border border-black/10 hover:-translate-y-1 hover:border-[color:var(--n)] transition text-center" style={{ ["--n" as any]: NAVY }}>
-              <div className="mx-auto w-16 h-16 rounded-2xl bg-black/[0.03] flex items-center justify-center">{i.icon}</div>
-              <div className="mt-4 font-bold text-[15px]">{i.n}</div>
-              <div className="text-[13px] text-[#0c0b0f]/55 mt-1">{i.d}</div>
-            </div>
-          ))}
+
+        <div className="relative mx-auto w-full max-w-[640px] aspect-square">
+          {/* Orbits */}
+          <div className="absolute inset-[8%] rounded-full border border-dashed border-[color:var(--n)]/25" style={{ ["--n" as any]: NAVY, animation: "orbit-spin 40s linear infinite" }}>
+            {[
+              { logo: whatsappAsset.url, label: "WhatsApp", deg: 0 },
+              { logo: gcalAsset.url, label: "Google Agenda", deg: 90 },
+              { logo: hubspotAsset.url, label: "HubSpot", deg: 180 },
+              { logo: planityAsset.url, label: "Planity", deg: 270 },
+            ].map((it) => (
+              <div
+                key={it.label}
+                className="absolute top-1/2 left-1/2 w-20 h-20 -ml-10 -mt-10 rounded-2xl bg-white border border-black/10 shadow-[0_10px_30px_-10px_rgba(18,48,140,0.35)] flex items-center justify-center"
+                style={{ transform: `rotate(${it.deg}deg) translate(calc(50% + 0px)) translateX(140px) rotate(-${it.deg}deg)`, animation: "orbit-counter 40s linear infinite" }}
+              >
+                <img src={it.logo} alt={it.label} className="w-12 h-12 object-contain" />
+              </div>
+            ))}
+          </div>
+
+          <div className="absolute inset-[22%] rounded-full border border-dashed border-[color:var(--r)]/20" style={{ ["--r" as any]: RED, animation: "orbit-spin-rev 55s linear infinite" }}>
+            {[
+              { icon: <Phone size={22} style={{ color: NAVY }} />, label: "Téléphone", deg: 45 },
+              { icon: <MessageSquare size={22} style={{ color: "#25D366" }} />, label: "SMS", deg: 135 },
+              { icon: <IgIcon size={22} style={{ color: "#E1306C" }} />, label: "Instagram", deg: 225 },
+              { icon: <CalendarDays size={22} style={{ color: NAVY }} />, label: "Agenda", deg: 315 },
+            ].map((it) => (
+              <div
+                key={it.label}
+                className="absolute top-1/2 left-1/2 w-14 h-14 -ml-7 -mt-7 rounded-xl bg-white border border-black/10 shadow-[0_6px_20px_-8px_rgba(0,0,0,0.25)] flex items-center justify-center"
+                style={{ transform: `rotate(${it.deg}deg) translateX(95px) rotate(-${it.deg}deg)`, animation: "orbit-counter-rev 55s linear infinite" }}
+              >
+                {it.icon}
+              </div>
+            ))}
+          </div>
+
+          {/* Center Serena logo */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full bg-white border border-black/10 shadow-[0_20px_60px_-20px_rgba(18,48,140,0.4)] flex items-center justify-center z-10">
+            <img src={serenaLogo.url} alt="Serena IA" className="w-28 h-28 object-contain" />
+          </div>
         </div>
-        <div className="mt-10 flex flex-wrap gap-3 justify-center">
+
+        <style>{`
+          @keyframes orbit-spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }
+          @keyframes orbit-spin-rev { from { transform: rotate(0deg) } to { transform: rotate(-360deg) } }
+          @keyframes orbit-counter { from { transform: rotate(var(--d,0deg)) translateX(140px) rotate(calc(-1 * var(--d,0deg))) } }
+        `}</style>
+
+        <div className="mt-14 flex flex-wrap gap-3 justify-center">
           <CTA>Essayer gratuitement</CTA>
           <CTA variant="outline">Voir toutes les intégrations</CTA>
         </div>
       </Section>
+
 
       {/* 3 ÉTAPES */}
       <Section className="bg-black/[0.02]">
