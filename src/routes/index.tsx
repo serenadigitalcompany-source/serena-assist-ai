@@ -378,16 +378,16 @@ function Landing() {
             <span className="text-[#0c0b0f]/70">Noté 5,0 sur 5 avec +8 avis Google vérifiés</span>
           </div>
           <h1 className="text-[52px] sm:text-[68px] lg:text-[88px] font-extrabold leading-[0.98] tracking-[-0.045em]">
-            Votre assistante IA<br />disponible{" "}
+            La voix de votre entreprise<br />même quand vous{" "}
             <span
               className="bg-clip-text text-transparent"
               style={{ backgroundImage: `linear-gradient(135deg, ${NAVY}, #3a6de8, ${RED})` }}
             >
-              24/7.
+              n'êtes pas là.
             </span>
           </h1>
           <p className="mt-6 text-[18px] lg:text-[20px] text-[#0c0b0f]/65 max-w-2xl mx-auto leading-relaxed">
-            Libérez-vous des appels manqués et concentrez-vous sur ce qui compte vraiment — votre métier.
+            Le progrès à votre service.
           </p>
           <div className="mt-8 flex flex-wrap gap-3 justify-center">
             <CTA>Essayer gratuitement</CTA>
