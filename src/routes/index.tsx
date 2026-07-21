@@ -7,6 +7,7 @@ import gcalAsset from "@/assets/gcal.asset.json";
 import hubspotAsset from "@/assets/hubspot.asset.json";
 import serenaLogo from "@/assets/serena-logo-transparent.asset.json";
 import planityAsset from "@/assets/planity.asset.json";
+import instagramIconAsset from "@/assets/instagram-icon.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Landing,
