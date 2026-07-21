@@ -7,6 +7,7 @@ import gcalAsset from "@/assets/gcal.asset.json";
 import hubspotAsset from "@/assets/hubspot.asset.json";
 import serenaLogo from "@/assets/serena-logo-transparent.asset.json";
 import planityAsset from "@/assets/planity.asset.json";
+import instagramIconAsset from "@/assets/instagram-icon.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -294,7 +295,7 @@ function Landing() {
     <div className="min-h-screen w-full bg-white text-[#0c0b0f]" style={{ fontFamily: "Inter, Montserrat, system-ui, sans-serif" }}>
       {/* Announce bar */}
       <div className="w-full text-white text-[13px] font-semibold text-center py-2.5 px-4" style={{ background: `linear-gradient(90deg, ${NAVY}, ${RED})` }}>
-        🎙️ Essai gratuit 14 jours · Aucune carte bancaire requise · Démarrer maintenant →
+        🎙️ Essai gratuit 14 jours · Démarrer maintenant →
       </div>
 
       {/* Nav */}
@@ -378,16 +379,16 @@ function Landing() {
             <span className="text-[#0c0b0f]/70">Noté 5,0 sur 5 avec +8 avis Google vérifiés</span>
           </div>
           <h1 className="text-[52px] sm:text-[68px] lg:text-[88px] font-extrabold leading-[0.98] tracking-[-0.045em]">
-            Votre assistante IA<br />disponible{" "}
+            La voix de votre entreprise<br />même quand vous{" "}
             <span
               className="bg-clip-text text-transparent"
               style={{ backgroundImage: `linear-gradient(135deg, ${NAVY}, #3a6de8, ${RED})` }}
             >
-              24/7.
+              n'êtes pas là.
             </span>
           </h1>
           <p className="mt-6 text-[18px] lg:text-[20px] text-[#0c0b0f]/65 max-w-2xl mx-auto leading-relaxed">
-            Libérez-vous des appels manqués et concentrez-vous sur ce qui compte vraiment — votre métier.
+            Le progrès à votre service.
           </p>
           <div className="mt-8 flex flex-wrap gap-3 justify-center">
             <CTA>Essayer gratuitement</CTA>
@@ -492,39 +493,34 @@ function Landing() {
         </div>
 
         <div className="relative mx-auto w-full max-w-[640px] aspect-square">
-          {/* Orbits */}
-          <div className="absolute inset-[8%] rounded-full border border-dashed border-[color:var(--n)]/25" style={{ ["--n" as any]: NAVY, animation: "orbit-spin 40s linear infinite" }}>
+          {/* Orbit ring (rotates) with counter-rotating logos so they stay upright */}
+          <div
+            className="absolute inset-[12%] rounded-full border border-dashed border-[color:var(--n)]/25"
+            style={{ ["--n" as any]: NAVY, animation: "orbit-spin 40s linear infinite" }}
+          >
             {[
-              { logo: whatsappAsset.url, label: "WhatsApp", deg: 0 },
-              { logo: gcalAsset.url, label: "Google Agenda", deg: 90 },
-              { logo: hubspotAsset.url, label: "HubSpot", deg: 180 },
-              { logo: planityAsset.url, label: "Planity", deg: 270 },
-            ].map((it) => (
-              <div
-                key={it.label}
-                className="absolute top-1/2 left-1/2 w-20 h-20 -ml-10 -mt-10 rounded-2xl bg-white border border-black/10 shadow-[0_10px_30px_-10px_rgba(18,48,140,0.35)] flex items-center justify-center"
-                style={{ transform: `rotate(${it.deg}deg) translate(calc(50% + 0px)) translateX(140px) rotate(-${it.deg}deg)`, animation: "orbit-counter 40s linear infinite" }}
-              >
-                <img src={it.logo} alt={it.label} className="w-12 h-12 object-contain" />
-              </div>
-            ))}
-          </div>
-
-          <div className="absolute inset-[22%] rounded-full border border-dashed border-[color:var(--r)]/20" style={{ ["--r" as any]: RED, animation: "orbit-spin-rev 55s linear infinite" }}>
-            {[
-              { icon: <Phone size={22} style={{ color: NAVY }} />, label: "Téléphone", deg: 45 },
-              { icon: <MessageSquare size={22} style={{ color: "#25D366" }} />, label: "SMS", deg: 135 },
-              { icon: <IgIcon size={22} style={{ color: "#E1306C" }} />, label: "Instagram", deg: 225 },
-              { icon: <CalendarDays size={22} style={{ color: NAVY }} />, label: "Agenda", deg: 315 },
-            ].map((it) => (
-              <div
-                key={it.label}
-                className="absolute top-1/2 left-1/2 w-14 h-14 -ml-7 -mt-7 rounded-xl bg-white border border-black/10 shadow-[0_6px_20px_-8px_rgba(0,0,0,0.25)] flex items-center justify-center"
-                style={{ transform: `rotate(${it.deg}deg) translateX(95px) rotate(-${it.deg}deg)`, animation: "orbit-counter-rev 55s linear infinite" }}
-              >
-                {it.icon}
-              </div>
-            ))}
+              { logo: whatsappAsset.url, label: "WhatsApp" },
+              { logo: instagramIconAsset.url, label: "Instagram" },
+              { logo: gcalAsset.url, label: "Google Agenda" },
+              { logo: hubspotAsset.url, label: "HubSpot" },
+              { logo: planityAsset.url, label: "Planity" },
+            ].map((it, i, arr) => {
+              const deg = (360 / arr.length) * i;
+              return (
+                <div
+                  key={it.label}
+                  className="absolute top-1/2 left-1/2 w-20 h-20 -ml-10 -mt-10"
+                  style={{ transform: `rotate(${deg}deg) translateX(220px) rotate(-${deg}deg)` }}
+                >
+                  <div
+                    className="w-full h-full rounded-2xl bg-white border border-black/10 shadow-[0_10px_30px_-10px_rgba(18,48,140,0.35)] flex items-center justify-center"
+                    style={{ animation: "orbit-counter 40s linear infinite" }}
+                  >
+                    <img src={it.logo} alt={it.label} className="w-12 h-12 object-contain" />
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
           {/* Center Serena logo */}
@@ -535,8 +531,7 @@ function Landing() {
 
         <style>{`
           @keyframes orbit-spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }
-          @keyframes orbit-spin-rev { from { transform: rotate(0deg) } to { transform: rotate(-360deg) } }
-          @keyframes orbit-counter { from { transform: rotate(var(--d,0deg)) translateX(140px) rotate(calc(-1 * var(--d,0deg))) } }
+          @keyframes orbit-counter { from { transform: rotate(0deg) } to { transform: rotate(-360deg) } }
         `}</style>
 
         <div className="mt-14 flex flex-wrap gap-3 justify-center">
