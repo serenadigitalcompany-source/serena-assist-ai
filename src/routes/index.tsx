@@ -611,7 +611,7 @@ function Landing() {
         <div className="text-center mb-10">
           <h2 className="text-6xl sm:text-7xl font-extrabold tracking-[-0.05em]">F.A.Q</h2>
           <div className="mt-6 inline-flex gap-1 p-1 rounded-full border border-black/10 bg-white">
-            {["Général", "Fonctionnement", "Intégrations"].map((t, i) => (
+            {["Général"].map((t, i) => (
               <button key={t} className={`px-4 py-1.5 rounded-full text-[13px] font-semibold ${i === 0 ? "text-white" : "text-[#0c0b0f]/60"}`} style={i === 0 ? { background: NAVY } : {}}>{t}</button>
             ))}
           </div>
