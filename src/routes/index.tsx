@@ -632,27 +632,6 @@ function Landing() {
         </div>
       </Section>
 
-      {/* CTA FINAL */}
-      <Section>
-        <div className="absolute inset-0 pointer-events-none" style={{ background: `radial-gradient(ellipse at center, rgba(18,48,140,0.12), transparent 60%)` }} />
-        <div className="relative text-center">
-          <Eyebrow>Commencez aujourd'hui</Eyebrow>
-          <h2 className="mt-4 text-4xl sm:text-6xl font-extrabold tracking-[-0.045em] max-w-3xl mx-auto">
-            Connectez Serena à tous vos outils du quotidien
-          </h2>
-          <p className="mt-5 text-[17px] text-[#0c0b0f]/65 max-w-2xl mx-auto">
-            Libérez-vous des appels manqués pour vous reconcentrer sur le développement de votre activité.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3 justify-center">
-            <CTA>Essayer gratuitement</CTA>
-            <CTA variant="outline">Réserver une démo</CTA>
-          </div>
-          <div className="mt-6 inline-flex items-center gap-2 text-[14px] text-[#0c0b0f]/60">
-            <Stars /> Noté 5,0 sur 5 · Google
-          </div>
-        </div>
-      </Section>
-
       {/* FOOTER */}
       <footer className="border-t border-black/10 px-6 py-16">
         <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-10">
