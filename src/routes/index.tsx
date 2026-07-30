@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Phone, MessageSquare, Instagram as IgIcon, CalendarDays, FileText, ChevronDown, Check, Star, Play, ArrowRight, Twitter, Linkedin } from "lucide-react";
+import { Phone, MessageSquare, Instagram as IgIcon, CalendarDays, FileText, ChevronDown, Check, Star, Play, ArrowRight, Twitter, Linkedin, Server, Cpu, Shield, ShieldCheck } from "lucide-react";
 import whatsappAsset from "@/assets/whatsapp.asset.json";
 import instagramAsset from "@/assets/instagram.asset.json";
 import gcalAsset from "@/assets/gcal.asset.json";
