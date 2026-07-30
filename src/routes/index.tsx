@@ -629,7 +629,7 @@ function Landing() {
         </div>
         <div className="mt-10 flex flex-wrap gap-3 justify-center">
           
-          <CTA variant="outline">Nous appeler</CTA>
+          <CTA variant="outline">Nous contacter</CTA>
         </div>
       </Section>
 
