@@ -628,7 +628,7 @@ function Landing() {
           ))}
         </div>
         <div className="mt-10 flex flex-wrap gap-3 justify-center">
-          <CTA>Réserver une démo</CTA>
+          
           <CTA variant="outline">Nous appeler</CTA>
         </div>
       </Section>
