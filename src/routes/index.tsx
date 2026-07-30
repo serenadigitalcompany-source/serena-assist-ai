@@ -295,7 +295,7 @@ function Landing() {
     <div className="min-h-screen w-full bg-white text-[#0c0b0f]" style={{ fontFamily: "Inter, Montserrat, system-ui, sans-serif" }}>
       {/* Announce bar */}
       <div className="w-full text-white text-[13px] font-semibold text-center py-2.5 px-4" style={{ background: `linear-gradient(90deg, ${NAVY}, ${RED})` }}>
-        🎙️ Essai gratuit 14 jours · Démarrer maintenant →
+        Essai gratuit 14 jours · Démarrer maintenant →
       </div>
 
       {/* Nav */}
