@@ -93,7 +93,7 @@ const Eyebrow = ({ children, color = NAVY }: { children: React.ReactNode; color?
     className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-[0.15em] border"
     style={{ color, borderColor: color + "40", background: color + "0d" }}
   >
-    {children}
+    AVIS VÉRIFIÉS
   </span>
 );
 
@@ -181,7 +181,7 @@ const TABS = [
     icon: <Phone size={16} />,
     avatar: <div className="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-sm" style={{ background: NAVY }}>S</div>,
     chat: [
-      { from: "user" as const, text: "Serena, as-tu reçu des appels importants ce matin ?" },
+      { from: "user" as const, text: "Royal Café bonjour, comment puis-je vous aider aujou ?" },
       { from: "bot" as const, text: "Oui, j'ai traité 5 appels. J'ai filtré 2 démarchages et confirmé 2 rendez-vous sur votre Planity." },
       { from: "user" as const, text: "Et le 3ème ?" },
       { from: "bot" as const, text: "Un client voulait reporter — je l'ai reprogrammé samedi 10h avec son accord ✓" },
