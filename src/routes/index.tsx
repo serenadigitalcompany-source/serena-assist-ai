@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Phone, MessageSquare, Instagram as IgIcon, CalendarDays, FileText, ChevronDown, Check, Star, Play, ArrowRight, Twitter, Linkedin } from "lucide-react";
+import { Phone, MessageSquare, Instagram as IgIcon, CalendarDays, FileText, ChevronDown, Check, Star, Play, ArrowRight, Twitter, Linkedin, Server, Cpu, Shield, ShieldCheck } from "lucide-react";
 import whatsappAsset from "@/assets/whatsapp.asset.json";
 import instagramAsset from "@/assets/instagram.asset.json";
 import gcalAsset from "@/assets/gcal.asset.json";
@@ -603,6 +603,63 @@ function Landing() {
         </div>
         <div className="mt-10 flex flex-wrap gap-3 justify-center">
           <CTA>Essayer gratuitement</CTA>
+        </div>
+      </Section>
+
+      {/* SÉCURITÉ & RGPD */}
+      <Section>
+        <div className="grid lg:grid-cols-2 gap-10 items-start">
+          {/* Visuel */}
+          <div className="relative overflow-hidden rounded-3xl border border-black/10 min-h-[420px] flex items-center justify-center"
+            style={{ background: `linear-gradient(160deg, #ffffff 0%, ${NAVY}12 45%, ${NAVY}22 100%)` }}>
+            <svg className="absolute inset-x-0 top-1/4 w-full" viewBox="0 0 400 120" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0,60 C80,20 160,90 400,40 L400,120 L0,120 Z" fill={NAVY} opacity="0.08" />
+              <path d="M0,90 C120,50 220,110 400,70 L400,120 L0,120 Z" fill={NAVY} opacity="0.12" />
+            </svg>
+            <div className="relative w-28 h-28 rounded-[28px] flex items-center justify-center shadow-[0_20px_50px_-15px_rgba(18,48,140,0.55)]" style={{ background: NAVY }}>
+              <ShieldCheck size={54} className="text-white" strokeWidth={1.6} />
+            </div>
+          </div>
+
+          {/* Cartes */}
+          <div>
+            <Eyebrow>Sécurité & RGPD</Eyebrow>
+            <h2 className="mt-4 mb-6 text-4xl sm:text-[42px] font-extrabold tracking-[-0.04em] leading-[1.05]">
+              Vos données restent en Europe
+            </h2>
+            <div className="space-y-4">
+              {[
+                {
+                  icon: Server,
+                  title: "Emplacement de nos serveurs",
+                  text: "L'intégralité de vos données est hébergée et traitée au sein de l'Union européenne. Nous appliquons les standards de sécurité les plus stricts, en totale conformité avec le RGPD, pour garantir la souveraineté et la confidentialité absolue de vos échanges et des informations de vos clients.",
+                  color: NAVY,
+                },
+                {
+                  icon: Cpu,
+                  title: "Partenaire LLM",
+                  text: "Nos services s'appuient sur des modèles de langage (LLM) fournis par des partenaires de confiance. Pour garantir la conformité au RGPD et à la réglementation européenne sur l'IA, les modèles sont exécutés sur des serveurs situés en Europe.",
+                  color: NAVY,
+                },
+                {
+                  icon: Shield,
+                  title: "La transparence est importante pour nous",
+                  text: "Nous ne conservons que les données strictement nécessaires au fonctionnement du service et pouvons supprimer toutes vos données à tout moment, en temps réel, si vous le demandez.",
+                  color: RED,
+                },
+              ].map((c) => (
+                <div key={c.title} className="rounded-2xl bg-white border border-black/10 p-6 hover:border-[color:var(--n)] transition" style={{ ["--n" as any]: c.color }}>
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: c.color + "14", color: c.color }}>
+                      <c.icon size={20} />
+                    </div>
+                    <h3 className="text-[18px] font-bold tracking-[-0.02em]">{c.title}</h3>
+                  </div>
+                  <p className="text-[14px] leading-relaxed text-[#0c0b0f]/60">{c.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </Section>
 
