@@ -379,7 +379,7 @@ function Landing() {
         <div className="relative max-w-5xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-black/10 bg-white text-[13px] mb-8">
             <Stars />
-            <span className="text-[#0c0b0f]/70">Noté 5,0 sur 5 avec +8 avis Google vérifiés</span>
+            <span className="text-[#0c0b0f]/70">Noté 5,0 sur 5 Google vérifiés</span>
           </div>
           <h1 className="text-[52px] sm:text-[68px] lg:text-[88px] font-extrabold leading-[0.98] tracking-[-0.045em]">
             La voix de votre entreprise<br />même quand vous{" "}
