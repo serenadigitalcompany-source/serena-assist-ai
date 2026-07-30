@@ -603,7 +603,6 @@ function Landing() {
         </div>
         <div className="mt-10 flex flex-wrap gap-3 justify-center">
           <CTA>Essayer gratuitement</CTA>
-          <CTA variant="outline">Réserver une démo</CTA>
         </div>
       </Section>
 
