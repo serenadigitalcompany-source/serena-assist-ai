@@ -142,32 +142,3 @@
     color: var(--color-foreground);
   }
 }
-
-/* ===== Dashboard app theme (scoped to /app) ===== */
-.serena-app {
-  --app-bg: #F7F8FB;
-  --app-border: #EAECEF;
-  --app-surface: #ffffff;
-  --app-text: #0B0F1A;
-}
-.serena-app.app-dark {
-  --app-bg: #0A0F1E;
-  --app-border: #232B45;
-  --app-surface: #121A2D;
-  --app-text: #E8ECF7;
-  color: var(--app-text);
-}
-.serena-app.app-dark .bg-white { background-color: var(--app-surface) !important; }
-.serena-app.app-dark [class*="text-black"] { color: color-mix(in oklab, var(--app-text) 70%, transparent) !important; }
-.serena-app.app-dark .bg-black\/5 { background-color: rgba(255,255,255,0.06) !important; }
-.serena-app.app-dark .hover\:bg-black\/5:hover { background-color: rgba(255,255,255,0.08) !important; }
-.serena-app.app-dark .hover\:text-black:hover { color: var(--app-text) !important; }
-.serena-app.app-dark input,
-.serena-app.app-dark textarea,
-.serena-app.app-dark select {
-  background-color: var(--app-surface);
-  color: var(--app-text);
-  border-color: var(--app-border);
-}
-.serena-app.app-dark input::placeholder,
-.serena-app.app-dark textarea::placeholder { color: rgba(232,236,247,0.45); }

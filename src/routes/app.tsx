@@ -5,7 +5,7 @@ import {
   Settings2, PhoneCall, MessageSquare, Building2, HelpCircle, User,
   LogOut, ChevronLeft, ChevronRight, Search, Bell, Plus, Play, Check,
   X, Clock, Calendar as CalIcon, Phone, ChevronDown, PlayCircle,
-  ChevronUp, MoreVertical, Send, Sparkles, Moon, Sun,
+  ChevronUp, MoreVertical, Send, Sparkles,
 } from "lucide-react";
 import serenaLogo from "@/assets/serena-logo-transparent.asset.json";
 import whatsappAsset from "@/assets/whatsapp.asset.json";
@@ -25,8 +25,8 @@ export const Route = createFileRoute("/app")({
 
 const NAVY = "#12308C";
 const RED = "#E30613";
-const BG = "var(--app-bg)";
-const BORDER = "var(--app-border)";
+const BG = "#F7F8FB";
+const BORDER = "#EAECEF";
 
 type SectionId =
   | "dashboard" | "calendrier" | "rdv" | "resultats" | "contacts"
@@ -52,21 +52,10 @@ const NAV: { id: SectionId; label: string; icon: any }[] = [
 function AppShell() {
   const [section, setSection] = useState<SectionId>("dashboard");
   const [collapsed, setCollapsed] = useState(false);
-  const [dark, setDark] = useState(false);
 
   return (
-    <div
-      className={`serena-app min-h-screen flex${dark ? " app-dark" : ""}`}
-      style={{ background: BG, fontFamily: "Inter, ui-sans-serif, system-ui" }}
-    >
-      <Sidebar
-        section={section}
-        setSection={setSection}
-        collapsed={collapsed}
-        setCollapsed={setCollapsed}
-        dark={dark}
-        setDark={setDark}
-      />
+    <div className="min-h-screen flex" style={{ background: BG, fontFamily: "Inter, ui-sans-serif, system-ui" }}>
+      <Sidebar section={section} setSection={setSection} collapsed={collapsed} setCollapsed={setCollapsed} />
       <div className="flex-1 flex flex-col min-w-0">
         <Topbar />
         <main className="flex-1 overflow-auto p-6 lg:p-10">
@@ -78,7 +67,7 @@ function AppShell() {
   );
 }
 
-function Sidebar({ section, setSection, collapsed, setCollapsed, dark, setDark }: any) {
+function Sidebar({ section, setSection, collapsed, setCollapsed }: any) {
   return (
     <aside
       className="shrink-0 border-r bg-white flex flex-col transition-all"
@@ -118,33 +107,6 @@ function Sidebar({ section, setSection, collapsed, setCollapsed, dark, setDark }
       </nav>
 
       <div className="border-t p-3" style={{ borderColor: BORDER }}>
-        <button
-          onClick={() => setDark(!dark)}
-          className="w-full mb-3 flex items-center gap-3 px-2 py-2 rounded-lg hover:bg-black/5 transition-colors"
-          aria-label="Basculer le mode sombre"
-          title={dark ? "Mode clair" : "Mode sombre"}
-        >
-          <span
-            className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
-            style={{ background: "rgba(18,48,140,0.10)", color: NAVY }}
-          >
-            {dark ? <Sun size={16} /> : <Moon size={16} />}
-          </span>
-          {!collapsed && (
-            <>
-              <span className="text-[13px] font-medium">{dark ? "Mode clair" : "Mode sombre"}</span>
-              <span
-                className="ml-auto relative w-9 h-5 rounded-full transition-colors shrink-0"
-                style={{ background: dark ? NAVY : "#D1D5DB" }}
-              >
-                <span
-                  className="absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-all"
-                  style={{ left: dark ? 18 : 2 }}
-                />
-              </span>
-            </>
-          )}
-        </button>
         <div className="flex items-center gap-3 px-2 py-2 rounded-lg" style={{ background: "rgba(18,48,140,0.06)" }}>
           <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-[12px]" style={{ background: NAVY }}>
             BP
