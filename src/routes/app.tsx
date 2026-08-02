@@ -197,8 +197,9 @@ function Btn({ children, variant = "primary", className = "", ...rest }: any) {
   return (
     <button
       {...rest}
-      className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-[13px] font-semibold transition-transform hover:scale-[1.02] ${className}`}
+      className={`inline-flex items-center justify-center gap-2 whitespace-nowrap px-4 h-10 rounded-lg text-[13px] font-semibold leading-none transition-transform hover:scale-[1.02] ${className}`}
       style={styles[variant]}
+
     >
       {children}
     </button>
