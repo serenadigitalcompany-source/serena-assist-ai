@@ -74,8 +74,8 @@ function Sidebar({ section, setSection, collapsed, setCollapsed }: any) {
       style={{ width: collapsed ? 76 : 260, borderColor: BORDER }}
     >
       <div className="h-[84px] px-4 flex items-center gap-2 border-b" style={{ borderColor: BORDER }}>
-        <img src={serenaLogo.url} alt="Serena" style={{ height: 40 }} className="object-contain" />
-        {!collapsed && <span className="font-bold text-[15px] tracking-tight text-[#0c0b0f]">Serena</span>}
+        <img src={serenaLogo.url} alt="Serena IA" style={{ height: collapsed ? 32 : 44 }} className="object-contain shrink-0" />
+
         <button
           onClick={() => setCollapsed(!collapsed)}
           className="ml-auto p-1.5 rounded-md hover:bg-black/5 text-black/50"
@@ -197,8 +197,9 @@ function Btn({ children, variant = "primary", className = "", ...rest }: any) {
   return (
     <button
       {...rest}
-      className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-[13px] font-semibold transition-transform hover:scale-[1.02] ${className}`}
+      className={`inline-flex items-center justify-center gap-2 whitespace-nowrap px-4 h-10 rounded-lg text-[13px] font-semibold leading-none transition-transform hover:scale-[1.02] ${className}`}
       style={styles[variant]}
+
     >
       {children}
     </button>
@@ -222,15 +223,16 @@ function Toggle({ on, onChange, color = NAVY }: { on: boolean; onChange: (v: boo
 
 function PageHeader({ title, subtitle, action }: { title: string; subtitle?: string; action?: any }) {
   return (
-    <div className="mb-8 flex items-start justify-between gap-4">
-      <div>
-        <h1 className="text-[32px] font-extrabold tracking-tight text-[#0c0b0f]">{title}</h1>
+    <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+      <div className="min-w-0">
+        <h1 className="text-[24px] sm:text-[30px] font-extrabold tracking-tight text-[#0c0b0f]">{title}</h1>
         {subtitle && <p className="mt-1 text-[14px] text-black/55">{subtitle}</p>}
       </div>
-      {action}
+      {action && <div className="shrink-0">{action}</div>}
     </div>
   );
 }
+
 
 /* ============ DASHBOARD HOME ============ */
 function DashboardHome() {
@@ -669,21 +671,28 @@ function ConfigIA() {
         {voices.map((v) => {
           const active = selected === v.n;
           return (
-            <Panel key={v.n} className={`p-4 cursor-pointer transition-all ${active ? "ring-2" : ""}`}>
-              <div onClick={() => setSelected(v.n)} style={active ? { boxShadow: `0 0 0 2px ${NAVY}` } : {}} className="rounded-xl">
-                <div className="flex items-start justify-between">
-                  <div className="w-11 h-11 rounded-xl flex items-center justify-center" style={{ background: `linear-gradient(135deg,${NAVY},${RED})`, color: "#fff" }}>
-                    <Mic2 size={18} />
-                  </div>
-                  {v.tag && <span className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ background: "rgba(18,48,140,0.08)", color: NAVY }}>{v.tag}</span>}
+            <div
+              key={v.n}
+              onClick={() => setSelected(v.n)}
+              className="cursor-pointer rounded-2xl border bg-white p-4 transition-all"
+              style={{
+                borderColor: active ? NAVY : BORDER,
+                boxShadow: active ? `0 0 0 1px ${NAVY}` : "0 1px 2px rgba(16,24,40,0.04)",
+              }}
+            >
+              <div className="flex items-start justify-between gap-2">
+                <div className="w-11 h-11 shrink-0 rounded-xl flex items-center justify-center" style={{ background: `linear-gradient(135deg,${NAVY},${RED})`, color: "#fff" }}>
+                  <Mic2 size={18} />
                 </div>
-                <div className="mt-3 font-bold text-[13px] truncate">{v.n}</div>
-                <div className="text-[11px] text-black/50 truncate">{v.desc}</div>
-                <button className="mt-3 flex items-center gap-1.5 text-[12px] font-semibold" style={{ color: NAVY }}>
-                  <PlayCircle size={14} /> Écouter
-                </button>
+                {v.tag && <span className="shrink-0 text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ background: "rgba(18,48,140,0.08)", color: NAVY }}>{v.tag}</span>}
               </div>
-            </Panel>
+              <div className="mt-3 font-bold text-[13px] leading-snug break-words">{v.n}</div>
+              <div className="mt-0.5 text-[11px] text-black/50 break-words">{v.desc}</div>
+              <button className="mt-3 flex items-center gap-1.5 text-[12px] font-semibold" style={{ color: NAVY }}>
+                <PlayCircle size={14} /> Écouter
+              </button>
+            </div>
+
           );
         })}
       </div>
