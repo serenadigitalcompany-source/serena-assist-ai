@@ -74,8 +74,8 @@ function Sidebar({ section, setSection, collapsed, setCollapsed }: any) {
       style={{ width: collapsed ? 76 : 260, borderColor: BORDER }}
     >
       <div className="h-[84px] px-4 flex items-center gap-2 border-b" style={{ borderColor: BORDER }}>
-        <img src={serenaLogo.url} alt="Serena" style={{ height: 40 }} className="object-contain" />
-        {!collapsed && <span className="font-bold text-[15px] tracking-tight text-[#0c0b0f]">Serena</span>}
+        <img src={serenaLogo.url} alt="Serena IA" style={{ height: collapsed ? 32 : 44 }} className="object-contain shrink-0" />
+
         <button
           onClick={() => setCollapsed(!collapsed)}
           className="ml-auto p-1.5 rounded-md hover:bg-black/5 text-black/50"
