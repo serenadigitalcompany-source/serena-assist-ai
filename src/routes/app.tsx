@@ -189,10 +189,10 @@ function Panel({ children, className = "" }: any) {
 
 function Btn({ children, variant = "primary", className = "", ...rest }: any) {
   const styles: any = {
-    primary: { background: NAVY, color: "#fff" },
-    danger: { background: RED, color: "#fff" },
+    primary: { background: NAVY, color: "var(--app-surface)" },
+    danger: { background: RED, color: "var(--app-surface)" },
     ghost: { background: "transparent", color: NAVY, border: `1px solid ${BORDER}` },
-    success: { background: "#16A34A", color: "#fff" },
+    success: { background: "#16A34A", color: "var(--app-surface)" },
   };
   return (
     <button
@@ -284,7 +284,7 @@ function DashboardHome() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-5">
           {config.map((c) => (
             <div key={c.label} className="flex items-center gap-3 text-[13px]">
-              <span className="w-5 h-5 rounded-full flex items-center justify-center" style={{ background: c.done ? "#16A34A" : "#E5E7EB", color: "#fff" }}>
+              <span className="w-5 h-5 rounded-full flex items-center justify-center" style={{ background: c.done ? "#16A34A" : "#E5E7EB", color: "var(--app-surface)" }}>
                 {c.done ? <Check size={12} /> : <Clock size={12} color="#6B7280" />}
               </span>
               <span className={c.done ? "text-black/70" : "text-black/45"}>{c.label}</span>
@@ -331,7 +331,7 @@ function DashboardHome() {
             ].map((c) => (
               <div key={c.name}>
                 <div className="flex justify-between text-[12px] mb-1"><span>{c.name}</span><span className="font-bold">{c.pct}%</span></div>
-                <div className="h-2 rounded-full" style={{ background: "#F3F4F6" }}>
+                <div className="h-2 rounded-full" style={{ background: "var(--app-soft)" }}>
                   <div className="h-full rounded-full" style={{ width: `${c.pct}%`, background: c.color }} />
                 </div>
               </div>
@@ -413,7 +413,7 @@ function Calendrier() {
               className="w-11 h-11 rounded-full text-[13px] font-bold flex items-center justify-center transition-all"
               style={{
                 background: v ? "#16A34A" : "#E5E7EB",
-                color: v ? "#fff" : "#6B7280",
+                color: v ? "var(--app-surface)" : "#6B7280",
               }}
             >
               {k === "Me" ? "M" : k}
@@ -681,7 +681,7 @@ function ConfigIA() {
               }}
             >
               <div className="flex items-start justify-between gap-2">
-                <div className="w-11 h-11 shrink-0 rounded-xl flex items-center justify-center" style={{ background: `linear-gradient(135deg,${NAVY},${RED})`, color: "#fff" }}>
+                <div className="w-11 h-11 shrink-0 rounded-xl flex items-center justify-center" style={{ background: `linear-gradient(135deg,${NAVY},${RED})`, color: "var(--app-surface)" }}>
                   <Mic2 size={18} />
                 </div>
                 {v.tag && <span className="shrink-0 text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ background: "rgba(18,48,140,0.08)", color: NAVY }}>{v.tag}</span>}
@@ -938,7 +938,7 @@ function CentreAide() {
               className="px-4 py-2 rounded-full text-[13px] font-semibold transition-all"
               style={{
                 background: active ? NAVY : "transparent",
-                color: active ? "#fff" : "#4B5162",
+                color: active ? "var(--app-surface)" : "#4B5162",
                 border: active ? "none" : `1px solid ${BORDER}`,
               }}
             >
@@ -1016,7 +1016,7 @@ function MonProfil() {
               {c.logo ? (
                 <img src={c.logo} alt={c.name} className="w-10 h-10 object-contain" />
               ) : (
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: "#0078D4", color: "#fff" }}>
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: "#0078D4", color: "var(--app-surface)" }}>
                   <CalIcon size={20} />
                 </div>
               )}
