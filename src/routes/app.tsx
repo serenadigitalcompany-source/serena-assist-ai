@@ -671,21 +671,28 @@ function ConfigIA() {
         {voices.map((v) => {
           const active = selected === v.n;
           return (
-            <Panel key={v.n} className={`p-4 cursor-pointer transition-all ${active ? "ring-2" : ""}`}>
-              <div onClick={() => setSelected(v.n)} style={active ? { boxShadow: `0 0 0 2px ${NAVY}` } : {}} className="rounded-xl">
-                <div className="flex items-start justify-between">
-                  <div className="w-11 h-11 rounded-xl flex items-center justify-center" style={{ background: `linear-gradient(135deg,${NAVY},${RED})`, color: "#fff" }}>
-                    <Mic2 size={18} />
-                  </div>
-                  {v.tag && <span className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ background: "rgba(18,48,140,0.08)", color: NAVY }}>{v.tag}</span>}
+            <div
+              key={v.n}
+              onClick={() => setSelected(v.n)}
+              className="cursor-pointer rounded-2xl border bg-white p-4 transition-all"
+              style={{
+                borderColor: active ? NAVY : BORDER,
+                boxShadow: active ? `0 0 0 1px ${NAVY}` : "0 1px 2px rgba(16,24,40,0.04)",
+              }}
+            >
+              <div className="flex items-start justify-between gap-2">
+                <div className="w-11 h-11 shrink-0 rounded-xl flex items-center justify-center" style={{ background: `linear-gradient(135deg,${NAVY},${RED})`, color: "#fff" }}>
+                  <Mic2 size={18} />
                 </div>
-                <div className="mt-3 font-bold text-[13px] truncate">{v.n}</div>
-                <div className="text-[11px] text-black/50 truncate">{v.desc}</div>
-                <button className="mt-3 flex items-center gap-1.5 text-[12px] font-semibold" style={{ color: NAVY }}>
-                  <PlayCircle size={14} /> Écouter
-                </button>
+                {v.tag && <span className="shrink-0 text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ background: "rgba(18,48,140,0.08)", color: NAVY }}>{v.tag}</span>}
               </div>
-            </Panel>
+              <div className="mt-3 font-bold text-[13px] leading-snug break-words">{v.n}</div>
+              <div className="mt-0.5 text-[11px] text-black/50 break-words">{v.desc}</div>
+              <button className="mt-3 flex items-center gap-1.5 text-[12px] font-semibold" style={{ color: NAVY }}>
+                <PlayCircle size={14} /> Écouter
+              </button>
+            </div>
+
           );
         })}
       </div>
