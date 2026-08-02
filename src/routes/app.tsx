@@ -5,7 +5,7 @@ import {
   Settings2, PhoneCall, MessageSquare, Building2, HelpCircle, User,
   LogOut, ChevronLeft, ChevronRight, Search, Bell, Plus, Play, Check,
   X, Clock, Calendar as CalIcon, Phone, ChevronDown, PlayCircle,
-  ChevronUp, MoreVertical, Send, Sparkles,
+  ChevronUp, MoreVertical, Send, Sparkles, Moon, Sun,
 } from "lucide-react";
 import serenaLogo from "@/assets/serena-logo-transparent.asset.json";
 import whatsappAsset from "@/assets/whatsapp.asset.json";
@@ -78,7 +78,7 @@ function AppShell() {
   );
 }
 
-function Sidebar({ section, setSection, collapsed, setCollapsed }: any) {
+function Sidebar({ section, setSection, collapsed, setCollapsed, dark, setDark }: any) {
   return (
     <aside
       className="shrink-0 border-r bg-white flex flex-col transition-all"
