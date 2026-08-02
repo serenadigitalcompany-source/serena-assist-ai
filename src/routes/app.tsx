@@ -52,10 +52,21 @@ const NAV: { id: SectionId; label: string; icon: any }[] = [
 function AppShell() {
   const [section, setSection] = useState<SectionId>("dashboard");
   const [collapsed, setCollapsed] = useState(false);
+  const [dark, setDark] = useState(false);
 
   return (
-    <div className="min-h-screen flex" style={{ background: BG, fontFamily: "Inter, ui-sans-serif, system-ui" }}>
-      <Sidebar section={section} setSection={setSection} collapsed={collapsed} setCollapsed={setCollapsed} />
+    <div
+      className={`serena-app min-h-screen flex${dark ? " app-dark" : ""}`}
+      style={{ background: BG, fontFamily: "Inter, ui-sans-serif, system-ui" }}
+    >
+      <Sidebar
+        section={section}
+        setSection={setSection}
+        collapsed={collapsed}
+        setCollapsed={setCollapsed}
+        dark={dark}
+        setDark={setDark}
+      />
       <div className="flex-1 flex flex-col min-w-0">
         <Topbar />
         <main className="flex-1 overflow-auto p-6 lg:p-10">
