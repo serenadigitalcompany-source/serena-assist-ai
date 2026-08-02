@@ -25,8 +25,8 @@ export const Route = createFileRoute("/app")({
 
 const NAVY = "#12308C";
 const RED = "#E30613";
-const BG = "#F7F8FB";
-const BORDER = "#EAECEF";
+const BG = "var(--app-bg)";
+const BORDER = "var(--app-border)";
 
 type SectionId =
   | "dashboard" | "calendrier" | "rdv" | "resultats" | "contacts"
@@ -331,7 +331,7 @@ function DashboardHome() {
             ].map((c) => (
               <div key={c.name}>
                 <div className="flex justify-between text-[12px] mb-1"><span>{c.name}</span><span className="font-bold">{c.pct}%</span></div>
-                <div className="h-2 rounded-full" style={{ background: "var(--app-soft)" }}>
+                <div className="h-2 rounded-full" style={{ background: "#F3F4F6" }}>
                   <div className="h-full rounded-full" style={{ width: `${c.pct}%`, background: c.color }} />
                 </div>
               </div>
