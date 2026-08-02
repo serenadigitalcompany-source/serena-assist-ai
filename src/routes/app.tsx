@@ -118,6 +118,33 @@ function Sidebar({ section, setSection, collapsed, setCollapsed }: any) {
       </nav>
 
       <div className="border-t p-3" style={{ borderColor: BORDER }}>
+        <button
+          onClick={() => setDark(!dark)}
+          className="w-full mb-3 flex items-center gap-3 px-2 py-2 rounded-lg hover:bg-black/5 transition-colors"
+          aria-label="Basculer le mode sombre"
+          title={dark ? "Mode clair" : "Mode sombre"}
+        >
+          <span
+            className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
+            style={{ background: "rgba(18,48,140,0.10)", color: NAVY }}
+          >
+            {dark ? <Sun size={16} /> : <Moon size={16} />}
+          </span>
+          {!collapsed && (
+            <>
+              <span className="text-[13px] font-medium">{dark ? "Mode clair" : "Mode sombre"}</span>
+              <span
+                className="ml-auto relative w-9 h-5 rounded-full transition-colors shrink-0"
+                style={{ background: dark ? NAVY : "#D1D5DB" }}
+              >
+                <span
+                  className="absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-all"
+                  style={{ left: dark ? 18 : 2 }}
+                />
+              </span>
+            </>
+          )}
+        </button>
         <div className="flex items-center gap-3 px-2 py-2 rounded-lg" style={{ background: "rgba(18,48,140,0.06)" }}>
           <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-[12px]" style={{ background: NAVY }}>
             BP
