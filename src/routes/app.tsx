@@ -339,19 +339,25 @@ function DashboardHome() {
 
         <Panel className="p-6">
           <div className="font-bold mb-4">RDV ce mois par statut</div>
-          <div className="flex items-end justify-around h-32">
+          <div className="grid grid-cols-3 gap-4">
             {[
               { l: "Confirmés", v: 84, c: "#16A34A" },
               { l: "En attente", v: 32, c: "#F59E0B" },
               { l: "Annulés", v: 12, c: RED },
             ].map((s) => (
-              <div key={s.l} className="flex flex-col items-center gap-2">
-                <div className="w-10 rounded-t-lg" style={{ height: s.v * 1.2, background: s.c }} />
-                <div className="text-[10px] font-semibold">{s.l}</div>
+              <div key={s.l} className="flex flex-col items-center">
+                <div className="flex h-32 w-full items-end justify-center">
+                  <div
+                    className="w-10 rounded-t-lg"
+                    style={{ height: `${Math.max((s.v / 84) * 100, 6)}%`, background: s.c }}
+                  />
+                </div>
+                <div className="mt-2 text-[11px] font-semibold text-center">{s.l}</div>
                 <div className="text-[14px] font-bold">{s.v}</div>
               </div>
             ))}
           </div>
+
         </Panel>
       </div>
 
