@@ -223,15 +223,16 @@ function Toggle({ on, onChange, color = NAVY }: { on: boolean; onChange: (v: boo
 
 function PageHeader({ title, subtitle, action }: { title: string; subtitle?: string; action?: any }) {
   return (
-    <div className="mb-8 flex items-start justify-between gap-4">
-      <div>
-        <h1 className="text-[32px] font-extrabold tracking-tight text-[#0c0b0f]">{title}</h1>
+    <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+      <div className="min-w-0">
+        <h1 className="text-[24px] sm:text-[30px] font-extrabold tracking-tight text-[#0c0b0f]">{title}</h1>
         {subtitle && <p className="mt-1 text-[14px] text-black/55">{subtitle}</p>}
       </div>
-      {action}
+      {action && <div className="shrink-0">{action}</div>}
     </div>
   );
 }
+
 
 /* ============ DASHBOARD HOME ============ */
 function DashboardHome() {
