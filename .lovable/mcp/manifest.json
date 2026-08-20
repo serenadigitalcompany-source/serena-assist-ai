@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "sdk_version": "0.26.2",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "serena-landing-replica",
+      "version": "0.1.0",
+      "title": "Serena Landing Replica"
+    },
+    "tools": [
+      {
+        "name": "get_product_overview",
+        "title": "Aperçu produit Serena IA",
+        "description": "Retourne la présentation publique de Serena IA : positionnement, canaux pris en charge, cas d'usage et secteurs cibles.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "search_faq",
+        "title": "Rechercher dans la FAQ",
+        "description": "Recherche dans la FAQ publique de Serena IA. Sans requête, retourne toutes les questions/réponses.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "query": {
+              "description": "Mots-clés à rechercher dans les questions et réponses.",
+              "type": "string"
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_integrations",
+        "title": "Lister les intégrations",
+        "description": "Liste les outils que Serena IA peut connecter (messageries, agendas, CRM).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_security_policy",
+        "title": "Sécurité & RGPD",
+        "description": "Retourne les engagements publics de Serena IA en matière de sécurité, d'hébergement en Europe et de conformité RGPD.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
